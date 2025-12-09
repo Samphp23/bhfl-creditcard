@@ -3,4 +3,4 @@ WORKDIR /app
 COPY datamigration.py /app/
 RUN pip install boto3
 RUN pip install pandas 
-ENTRYPOINT ["python", "x.py"]
+ENTRYPOINT ["python", "bhfl_credit.py"]
