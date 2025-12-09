@@ -2,7 +2,7 @@ import json
 import boto3
 
 client = boto3.client("s3")
-Source_bucket = "source-s3-bucket-14-11"
+Source_bucket = "samir-ecr-s3-s3"
 Source_prefix = "daily/"
 destination_prefix = "monthly/"
 
@@ -14,7 +14,7 @@ def lambda_handler():
             continue
         filename = Source_key.split("/")[-1] 
         destination_key = f"{destination_prefix}{filename}"
-        if filename.endswith(".ipynb"):
+        if filename.endswith(".csv"):
             client.copy_object(
                 Bucket=Source_bucket,
                 CopySource={"Bucket": Source_bucket, "Key": Source_key},               
